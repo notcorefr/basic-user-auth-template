@@ -1,0 +1,27 @@
+{
+  "name": "school-management-system",
+  "version": "1.0.0",
+  "description": "Open Source School Management system. It can be used for schools, tutions, institutions, univercity etc.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anuj-weebjs/school-management-system.git"
+  },
+  "keywords": [
+    "school-management",
+    "javascript",
+    "schools",
+    "tutions",
+    "helping",
+    "communitiy"
+  ],
+  "author": "anuj-weebjs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anuj-weebjs/school-management-system/issues"
+  },
+  "homepage": "https://github.com/anuj-weebjs/school-management-system#readme"
+}
