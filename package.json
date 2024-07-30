@@ -4,7 +4,8 @@
   "description": "Open Source School Management system. It can be used for schools, tutions, institutions, univercity etc.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --exec 'node main.js' -e 'js json ejs'"
   },
   "repository": {
     "type": "git",
@@ -23,5 +24,14 @@
   "bugs": {
     "url": "https://github.com/anuj-weebjs/school-management-system/issues"
   },
-  "homepage": "https://github.com/anuj-weebjs/school-management-system#readme"
+  "homepage": "https://github.com/anuj-weebjs/school-management-system#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "mongoose": "^8.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
 }
