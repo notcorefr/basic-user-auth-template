@@ -5,6 +5,4 @@ router.get('/', (req, res) => {
   res.render('register', { foo: "Register" });
 });
 
-
-
 module.exports = router;
