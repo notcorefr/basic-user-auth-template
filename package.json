@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --exec 'node src/main.js' -e 'js json ejs'"
+    "dev": "nodemon --exec 'node src/main.js' -e 'js json ejs'",
+    "build": "npm i"
   },
   "repository": {
     "type": "git",
