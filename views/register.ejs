@@ -1,28 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-    <link rel="stylesheet" href="/public/register/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" href="/public/register/style.css">
 </head>
+
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li>home</li>
-            </ul>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/">home</a></li>
+      </ul>
 
-            <ul>
-                <li>login</li>
-                <li>register</li>
-            </ul>
-        </nav>
-    </header>
-    <!-- Hello <%= foo %> -->
+      <ul>
+        <li><a href="/login">login</a></li>
+        <li><a href="/register">register</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hello <%= foo %> -->
+  <main>
+    <div class="register-container">
+      <form action="">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username">
 
 
+        <label for="password" >Password</label>
+        <input type="password"  name="resgister" id="password" placeholder="Enter Your password here" >
 
-    <script src="/public/register/script.js"></script>
+        <input type="submit" value="Submit" id="submit">
+      </form>
+    </div>
+  </main>
+
+
+  <script src="/public/register/script.js"></script>
 </body>
+
 </html>
