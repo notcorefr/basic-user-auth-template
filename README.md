@@ -1,6 +1,6 @@
 # School Management System
 ## Plan
-
+- In this project my aim is to Give Institutions, a proper management System including payouts management.
 ### Structure
 ```txt
 [283K]  ./
