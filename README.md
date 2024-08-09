@@ -2,7 +2,50 @@
 ## Plan
 
 ### Structure
-![plan image](https://github.com/anuj-weebjs/school-management-system/blob/main/plan.png?raw=true)
+```txt
+[283K]  ./
+├── [1.0K]  LICENSE.txt
+├── [1.0K]  package.json
+├── [ 54K]  package-lock.json
+├── [178K]  plan.png
+├── [ 371]  README.md
+├── [   0]  structure.txt
+└── [ 45K]  src/
+    ├── [1.4K]  main.js
+    ├── [4.0K]  models/
+    │   └── [  38]  users.js
+    ├── [ 24K]  public/
+    │   ├── [6.1K]  global/
+    │   │   ├── [ 958]  global.css
+    │   │   └── [1.2K]  global.js
+    │   ├── [4.9K]  index/
+    │   │   ├── [   0]  script.js
+    │   │   └── [ 971]  style.css
+    │   ├── [4.0K]  login/
+    │   │   ├── [   0]  script.js
+    │   │   └── [   0]  style.css
+    │   └── [5.0K]  register/
+    │       ├── [ 985]  script.js
+    │       └── [   0]  style.css
+    ├── [5.4K]  routes/
+    │   ├── [ 938]  auth.js
+    │   ├── [ 175]  index.js
+    │   ├── [ 175]  login.js
+    │   └── [ 179]  register.js
+    └── [6.4K]  views/
+        ├── [ 628]  index.ejs
+        ├── [ 703]  login.ejs
+        └── [1.1K]  register.ejs
+
+ 348K used in 10 directories, 23 files
+
+```
+### env
+
+```env
+MONGO_URI=
+```
+
 ### Color Palette
 ```css
 :root {

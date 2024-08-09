@@ -6,23 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register</title>
   <link rel="stylesheet" href="/public/register/style.css">
+  <link rel="stylesheet" href="/public/global/global.css">
+
 </head>
 
 <body>
   <header>
-    <nav>
       <ul>
-        <li><a href="/">home</a></li>
+        <li><a href="/">Home</a></li>
       </ul>
 
       <ul>
-        <li><a href="/login">login</a></li>
-        <li><a href="/register">register</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/register">Register</a></li>
       </ul>
-    </nav>
   </header>
 
   <!-- Hello <%= foo %> -->
+  <h2>Register Page</h2>
+
   <main>
     <div class="register-container">
       <form action="">
@@ -30,8 +32,8 @@
         <input type="text" name="username" id="username">
 
 
-        <label for="password" >Password</label>
-        <input type="password"  name="resgister" id="password" placeholder="Enter Your password here" >
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="Enter Your password here">
 
         <input type="submit" value="Submit" id="submit">
       </form>
@@ -39,7 +41,8 @@
   </main>
 
 
-  <script src="/public/register/script.js"></script>
+  <script type="module" src="/public/register/script.js"></script>
+  <script type="module" src="/public/global/global.js"></script>
 </body>
 
 </html>

@@ -1,10 +1,10 @@
+import {notify} from '/public/global/global.js';
 
-const url = 'https://j6m04g6x-4000.inc1.devtunnels.ms';
+const url = window.location.origin;
 const submitBtn = document.getElementById('submit');
 
 let usernameElem = document.getElementById('username');
 let passwordElem = document.getElementById('password');
-console.log(usernameElem)
 
 submitBtn.addEventListener('click', async (e) =>{
     e.preventDefault();
@@ -15,8 +15,9 @@ submitBtn.addEventListener('click', async (e) =>{
 
     
 
-    let a = await register(username, password);
-    console.log(a);
+    let res = await register(username, password);
+    
+    notify(res.message, res.notify);
 
 
 })
@@ -37,4 +38,5 @@ async function register(username, password) {
     } catch (err) {
         console.log(err);
     }
+
 }
