@@ -1,0 +1,31 @@
+./
+├── LICENSE.txt
+├── main.js
+├── package.json
+├── package-lock.json
+├── plan.png
+├── README.md
+├── structure.txt
+├── public/
+│   ├── global/
+│   │   └── global.css
+│   ├── index/
+│   │   ├── script.js
+│   │   └── style.css
+│   ├── login/
+│   │   ├── script.js
+│   │   └── style.css
+│   └── register/
+│       ├── script.js
+│       └── style.css
+├── routes/
+│   ├── auth.js
+│   ├── index.js
+│   ├── login.js
+│   └── register.js
+└── views/
+    ├── index.ejs
+    ├── login.ejs
+    └── register.ejs
+
+8 directories, 21 files
