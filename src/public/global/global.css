@@ -18,6 +18,7 @@ body{
 }
 
 .notification-container {
+    pointer-events: none;
     padding-left: 10px;
     padding-right: 10px;
     /* width: 15rem; */

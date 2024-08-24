@@ -3,22 +3,27 @@ const url = window.location.origin + '/auth/login';
 
 const submitBtn = document.getElementById('submit');
 
-submitBtn.addEventListener('click', async (e) => {
-    e.preventDefault();
+if (submitBtn) {
 
-    let username = document.getElementById('username').value;
-    let password = document.getElementById('password').value;
+    submitBtn.addEventListener('click', async (e) => {
+        e.preventDefault();
+
+        let username = document.getElementById('username').value;
+        let password = document.getElementById('password').value;
 
 
-    const res = await logIn(username, password)
+        const res = await logIn(username, password)
 
-    if (res.notify && res.message) {
-        notify(res.message, res.notify);
-    }
+        if ((res.notify == 0 || res.notify == 1) && res.message) {
+            notify(res.message, res.notify);
+        }
+        console.log(res);
 
-    console.log(res);
-})
+        document.cookie = `sessionId=${res.session.sessionId}; expires=${res.session.expiresOn} UTC; path=/`
 
+    })
+
+}
 
 async function logIn(username, password) {
     const data = {

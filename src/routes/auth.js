@@ -1,7 +1,10 @@
 const express = require('express');
+const router = express.Router();
 const crypto = require('crypto');
 const userModel = require('../models/users');
-const router = express.Router();
+const decryptPassword = require('../utils/decryptPassword');
+const encryptPassword = require('../utils/encryptPassword');
+const createSession = require('../utils/createSession');
 const algorithm = 'aes-256-cbc';
 
 
@@ -16,7 +19,7 @@ router.post('/register', async (req, res) => {
         })
         return;
     }
-    
+
     if (!(await isUniqueUsername(username))) {
         res.send({
             notify: 1,
@@ -24,7 +27,7 @@ router.post('/register', async (req, res) => {
         })
         return;
     }
-    
+
     if (password < 5) {
         res.send({
             notify: 1,
@@ -32,15 +35,9 @@ router.post('/register', async (req, res) => {
         })
     }
 
-    
-    const key = crypto.randomBytes(32);
-    const iv = crypto.randomBytes(16);
 
-    
-    const cipher = crypto.createCipheriv(algorithm, key, iv);
-    
-    let encryptedPass = cipher.update(password, 'utf8', 'hex');
-    encryptedPass += cipher.final('hex');
+    const { encryptedPass, key, iv } = encryptPassword(password, algorithm);
+
 
     let newUser = new userModel({
         username: username,
@@ -50,15 +47,15 @@ router.post('/register', async (req, res) => {
         createdOn: Date.now()
     })
 
-    newUser.save();
+    await newUser.save();
     console.log('Successfully Created user ' + username + ' with hashed pass ' + encryptedPass);
 
-
-
+    const session = await createSession(username, password);
 
     res.send({
         message: 'Registration Successful',
-        notify: 0
+        notify: 0,
+        sessionId: session.id
     })
 
 });
@@ -71,20 +68,20 @@ async function isUniqueUsername(username) {
     return false;
 }
 
-router.post('/login', async(req, res) => {
-    const {username, password} = req.body;
+router.post('/login', async (req, res) => {
+    const { username, password } = req.body;
 
-    if(!username || !password){
+    if (!username || !password) {
         res.send({
             notify: 1,
-            message:`Please, Fill The Values correctly`
+            message: `Please, Fill The Values correctly`
         });
         return;
     }
 
-    
-    const user = await userModel.findOne({username: username});
-    if(!user){
+
+    const user = await userModel.findOne({ username: username });
+    if (!user) {
         res.send({
             notify: 1,
             message: `No User with That username Found.`
@@ -93,35 +90,44 @@ router.post('/login', async(req, res) => {
     }
 
 
-    if(!user.key || !user.iv){
+    if (!user.key || !user.iv) {
         console.log('no key')
         return;
     }
 
 
-    const decipher = crypto.createDecipheriv(algorithm, user.key, user.iv);
-    
+    const decryptedPass = decryptPassword(user.hashedPassword, algorithm, user.key, user.iv);
 
-    let decryptedPass = decipher.update(user.hashedPassword, 'hex', 'utf8');
-    decryptedPass += decipher.final('utf8');
-    console.log(decryptedPass)
-
-    if(decryptedPass != password){
+    if (decryptedPass != password) {
         res.send({
             notify: 1,
-            message: `The Password is Incorrect, Try Again`,
+            message: `The Password is Incorrect, Try Again`
         });
         return;
     }
 
+
+    let session;
+    try {
+        session = await createSession(username, decryptedPass);
+    } catch (err) {
+        console.log(err);
+        res.send({
+            notify: 1,
+            message: `${err}`,
+        });
+        return;
+    }
+
+
+
     res.send({
         notify: 0,
         message: `Login Successful!`,
+        session: session
     });
 
     return;
-
-
 
 })
 

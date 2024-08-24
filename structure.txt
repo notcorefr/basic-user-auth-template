@@ -1,35 +1,39 @@
-[283K]  ./
+[117K]  ./
 ├── [1.0K]  LICENSE.txt
-├── [1.0K]  package.json
+├── [1.1K]  package.json
 ├── [ 54K]  package-lock.json
-├── [178K]  plan.png
-├── [ 371]  README.md
+├── [1.6K]  README.md
 ├── [   0]  structure.txt
-└── [ 45K]  src/
+└── [ 55K]  src/
     ├── [1.4K]  main.js
-    ├── [4.0K]  models/
-    │   └── [  38]  users.js
-    ├── [ 24K]  public/
+    ├── [4.7K]  models/
+    │   ├── [ 362]  session.js
+    │   └── [ 401]  users.js
+    ├── [ 25K]  public/
     │   ├── [6.1K]  global/
-    │   │   ├── [ 958]  global.css
-    │   │   └── [1.2K]  global.js
+    │   │   ├── [1.4K]  global.css
+    │   │   └── [ 705]  global.js
     │   ├── [4.9K]  index/
     │   │   ├── [   0]  script.js
     │   │   └── [ 971]  style.css
-    │   ├── [4.0K]  login/
-    │   │   ├── [   0]  script.js
+    │   ├── [5.0K]  login/
+    │   │   ├── [1.0K]  script.js
     │   │   └── [   0]  style.css
-    │   └── [5.0K]  register/
-    │       ├── [ 985]  script.js
+    │   └── [4.9K]  register/
+    │       ├── [ 964]  script.js
     │       └── [   0]  style.css
-    ├── [5.4K]  routes/
-    │   ├── [ 938]  auth.js
+    ├── [7.1K]  routes/
+    │   ├── [2.6K]  auth.js
     │   ├── [ 175]  index.js
     │   ├── [ 175]  login.js
     │   └── [ 179]  register.js
-    └── [6.4K]  views/
-        ├── [ 628]  index.ejs
-        ├── [ 703]  login.ejs
+    ├── [5.9K]  utils/
+    │   ├── [1.1K]  createSession.js
+    │   ├── [ 368]  decryptPassword.js
+    │   └── [ 476]  encryptPassword.js
+    └── [6.9K]  views/
+        ├── [ 607]  index.ejs
+        ├── [1.2K]  login.ejs
         └── [1.1K]  register.ejs
 
- 348K used in 10 directories, 23 files
+ 199K used in 11 directories, 26 files

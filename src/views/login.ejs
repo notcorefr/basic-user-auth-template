@@ -1,43 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="/public/login/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="/public/login/style.css">
   <link rel="stylesheet" href="/public/global/global.css">
 
 </head>
-<body>
-    <!-- Hello <%= // foo %> -->
-    <header>
-          <ul>
-            <li><a href="/">home</a></li>
-          </ul>
-    
-          <ul>
-            <li><a href="/login">login</a></li>
-            <li><a href="/register">register</a></li>
-          </ul>
-      </header>
-      <h2>Login Page</h2>
-    <main>
-      This does nothing for now check /register
-      <div class="login-container">
-        <form action="">
-          <label for="username">Username</label>
-          <input type="text" name="username" id="username">
-  
-  
-          <label for="password">Password</label>
-          <input type="password" name="password" id="password" placeholder="Enter Your password here">
-  
-          <input type="submit" value="Submit" id="submit">
-        </form>
-      </div>
-    </main>
 
-    <script type="module" src="/public/login/script.js"></script>
-    <script type="module" src="/public/global/global.js"></script>
+<body>
+  <!-- Hello <%= // foo %> -->
+  <header>
+    <ul>
+      <li><a href="/">home</a></li>
+    </ul>
+
+    <ul>
+      <li><a href="/login">login</a></li>
+      <li><a href="/register">register</a></li>
+    </ul>
+  </header>
+  <h2>Login Page</h2>
+  <main>
+    <%if (session) { %>
+    <h1>Welcome, <%= session.username %></h1>
+    <% }else{%>
+
+    <div class="login-container">
+      <form action="">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username">
+
+
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="Enter Your password here">
+
+        <input type="submit" value="Submit" id="submit">
+      </form>
+    </div>
+
+    <% }%>
+  </main>
+
+  <script type="module" src="/public/login/script.js"></script>
+  <script type="module" src="/public/global/global.js"></script>
 </body>
+
 </html>

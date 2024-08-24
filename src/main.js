@@ -4,6 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser');
 const app = express();
 const mongoUrl = process.env.MONGO_URI;
 
@@ -16,6 +17,7 @@ var corsOptions = {
 app.set("views", path.join(__dirname, 'views'))
 app.set('view engine', 'ejs');
 
+app.use(cookieParser())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
@@ -33,6 +35,8 @@ app.use('/', indexRoutes);
 app.use('/login', loginRoutes);
 app.use('/register', registerRoutes);
 app.use('/auth', cors(corsOptions), authRoutes);
+
+
 
 
 
