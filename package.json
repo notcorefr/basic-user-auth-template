@@ -1,12 +1,15 @@
 {
   "name": "school-management-system",
-  "version": "1.0.0",
-  "description": "Open Source School Management system. It can be used for schools, tutions, institutions, univercity etc.",
-  "main": "server.js",
+  "version": "0.2.0",
+  "description": "Open Source School Management system. It can be used for schools, tutions, institutions, university, etc.",
+  "main": "dist/main.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --exec 'node src/main.js' -e 'js json ejs'",
-    "build": "npm i"
+    "start": "bun run dist/main.js",
+    "build": "bun run tsc && cp -r src/views dist && cp -r src/public dist",
+    "dev": "nodemon --watch './' --exec 'bun src/main.ts' -e 'ts ejs json'",
+    "type-check": "bun run tsc --noEmit",
+    "clean": "rm -rf dist"
   },
   "repository": {
     "type": "git",
@@ -18,7 +21,7 @@
     "schools",
     "tutions",
     "helping",
-    "communitiy"
+    "community"
   ],
   "author": "anuj-weebjs",
   "license": "MIT",
@@ -37,6 +40,10 @@
     "mongoose": "^8.5.1"
   },
   "devDependencies": {
+    "@types/cookie-parser": "^1.4.7",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.5.0",
     "nodemon": "^3.1.4"
   }
 }

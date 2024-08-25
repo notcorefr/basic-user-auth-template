@@ -1,10 +1,11 @@
-const express = require('express');
-const router = express.Router();
-const crypto = require('crypto');
-const userModel = require('../models/users');
-const decryptPassword = require('../utils/decryptPassword');
-const encryptPassword = require('../utils/encryptPassword');
-const createSession = require('../utils/createSession');
+import { Router } from 'express';
+import { userModel } from '../models/users';
+import { decryptPassword } from '@utils/decryptPassword';
+import { encryptPassword } from '@utils/encryptPassword';
+import { createSession } from '@utils/createSession';
+import { error } from 'console';
+
+const router = Router();
 const algorithm = 'aes-256-cbc';
 
 
@@ -50,17 +51,18 @@ router.post('/register', async (req, res) => {
     await newUser.save();
     console.log('Successfully Created user ' + username + ' with hashed pass ' + encryptedPass);
 
-    const session = await createSession(username, password);
+    const metaData = await createSession(username, password);
 
     res.send({
         message: 'Registration Successful',
         notify: 0,
-        sessionId: session.id
+        metaData: metaData,
     })
 
+    return;
 });
 
-async function isUniqueUsername(username) {
+async function isUniqueUsername(username: string) {
     let res = await userModel.findOne({ username: username });
     if (!res) {
         return true;
@@ -81,6 +83,7 @@ router.post('/login', async (req, res) => {
 
 
     const user = await userModel.findOne({ username: username });
+    
     if (!user) {
         res.send({
             notify: 1,
@@ -90,25 +93,32 @@ router.post('/login', async (req, res) => {
     }
 
 
-    if (!user.key || !user.iv) {
-        console.log('no key')
+
+
+    if (!user.hashedPassword || !user.key || !user.iv) {
+        console.error('User Oject has some invaild values')
         return;
     }
 
 
-    const decryptedPass = decryptPassword(user.hashedPassword, algorithm, user.key, user.iv);
-
-    if (decryptedPass != password) {
-        res.send({
-            notify: 1,
-            message: `The Password is Incorrect, Try Again`
-        });
-        return;
-    }
 
 
     let session;
+
+
+
     try {
+        const decryptedPass = decryptPassword(user.hashedPassword, algorithm, user.key, user.iv);
+
+        if (decryptedPass != password || !decryptPassword) {
+            res.send({
+                notify: 1,
+                message: `The Password is Incorrect, Try Again`
+            });
+            return;
+        }
+
+
         session = await createSession(username, decryptedPass);
     } catch (err) {
         console.log(err);
@@ -133,4 +143,4 @@ router.post('/login', async (req, res) => {
 
 
 
-module.exports = router;
+export { router };

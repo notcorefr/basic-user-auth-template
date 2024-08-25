@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",                              // Target the latest ECMAScript features
+    "module": "ESNext",                              // Use ESNext module system suited for Bun
+    "lib": ["ESNext", "DOM"],                        // Include ESNext and DOM libraries
+    "moduleResolution": "node",                      // Resolve modules as Node.js does
+    "esModuleInterop": true,                         // Allow default imports from CommonJS modules
+    "forceConsistentCasingInFileNames": true,        // Enforce consistent casing in filenames
+    "skipLibCheck": true,                            // Skip type checks for declaration files
+    "strict": true,                                  // Enable all strict type-checking options
+    "noImplicitAny": true,                           // Disallow `any` type unless explicitly used
+    "strictNullChecks": true,                        // Enable strict null checks
+    "strictFunctionTypes": true,                     // Enable strict checking of function types
+    "strictBindCallApply": true,                     // Enable strict checking of `bind`, `call`, and `apply`
+    "noImplicitThis": true,                          // Warn on `this` expressions with an implicit `any` type
+    "alwaysStrict": true,                            // Parse in strict mode and emit `"use strict"` for each file
+    "resolveJsonModule": true,                       // Allow importing .json files
+    "isolatedModules": true,                         // Ensure each file can be transpiled without type information
+    "outDir": "./dist",                              // Output directory for compiled files
+    "rootDir": "./src",                              // Root directory of input files
+    "allowJs": true,                                 // Allow JavaScript files to be compiled
+    "checkJs": false,                                // Disable type checking for JavaScript files
+    "baseUrl": "./",                                 // Base directory to resolve non-relative module names
+    "paths": {
+      "@models/*": ["src/models/*"],                 // Alias for models directory
+      "@routes/*": ["src/routes/*"],                 // Alias for routes directory
+      "@utils/*": ["src/utils/*"],                   // Alias for utils directory
+      "@public/*": ["src/public/*"]                  // Alias for public assets
+    },
+    "types": ["node", "express"],                    // Include Node.js and Express types
+    "typeRoots": ["./node_modules/@types", "./src/@types"], // Specify custom type definitions
+    "allowSyntheticDefaultImports": true             // Allow default imports from modules with no default export
+  },
+  "include": [
+    "src/**/*.ts",                                   // Include all TypeScript files in src
+    "src/**/*.d.ts",                                 // Include any custom type declaration files
+    "src/**/*.js"                                    // Include JavaScript files if you plan to migrate them
+  ],
+  "exclude": [
+    "node_modules",                                  // Exclude node_modules
+    "dist"                                           // Exclude the build output directory
+  ]
+}

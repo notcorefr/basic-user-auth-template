@@ -1,14 +1,25 @@
-const sessionModel = require('../models/session');
-const decryptPassword = require('./decryptPassword');
-const userModel = require('../models/users');
+import { sessionModel } from "@models/session";
+import { decryptPassword } from "./decryptPassword";
+import { userModel } from "@models/users";
+import { throwDeprecation } from "process";
+
+// const decryptPassword = require('./decryptPassword');
+// const userModel = require('../models/users');
 const algorithm = 'aes-256-cbc';
 
-async function createSession(username, password) {
+
+
+async function createSession(username: string, password: string): Promise<MetaData>{
+
     const existingUser = await userModel.findOne({ username: username });
     if (!existingUser) {
         throw new Error('User Doesnt Exist!');
     }
 
+
+    if(!existingUser.hashedPassword || !existingUser.key || !existingUser.iv){
+        throw new Error("Something went wrong!");
+    }
     let decryptedPassword = decryptPassword(existingUser.hashedPassword, algorithm, existingUser.key, existingUser.iv);
 
     if (decryptedPassword != password) {
@@ -40,15 +51,33 @@ async function createSession(username, password) {
         });
 
     }
-
+    
     await session.save();
+    
+    const _username = session.username;
+    const sessionId = session.sessionId;
+    const sessionExpiresOn = session.expiresOn;
 
-    return session;
+    if(!_username || !sessionId || !sessionExpiresOn){
+        throw new Error("Something went wrong");
+    }
+
+    let metaData: MetaData = {
+        user: { 
+            username:_username,
+        },
+        session: {
+            id: sessionId,
+            expiresOn: sessionExpiresOn
+        }
+    }
+
+    return metaData;
 
 }
 
-module.exports = createSession;
+export {createSession}
 
-function randomNumber(min, max) {
+function randomNumber(min: number, max: number): number {
     return Math.round(Math.random() * (max - min) + min);
 }

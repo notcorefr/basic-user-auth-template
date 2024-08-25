@@ -1,6 +1,10 @@
-const crypto = require('crypto');
+import * as crypto from 'crypto';
 
-function encryptPassword(rawPassword ,algorithm){
+function encryptPassword(rawPassword: string ,algorithm: string): {
+    encryptedPass: string,
+    key: Buffer,
+    iv: Buffer
+}{
     const _key = crypto.randomBytes(32);
     const _iv = crypto.randomBytes(16);
 
@@ -16,4 +20,4 @@ function encryptPassword(rawPassword ,algorithm){
     }
 }
 
-module.exports = encryptPassword;
+export {encryptPassword};

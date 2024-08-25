@@ -24,8 +24,8 @@
   </header>
   <h2>Login Page</h2>
   <main>
-    <%if (session) { %>
-    <h1>Welcome, <%= session.username %></h1>
+    <%if (metaData.user != null) { %>
+    <h1>Welcome, <%= metaData.user.username %></h1>
     <% }else{%>
 
     <div class="login-container">
