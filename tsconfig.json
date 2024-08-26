@@ -25,7 +25,8 @@
       "@models/*": ["src/models/*"],                 // Alias for models directory
       "@routes/*": ["src/routes/*"],                 // Alias for routes directory
       "@utils/*": ["src/utils/*"],                   // Alias for utils directory
-      "@public/*": ["src/public/*"]                  // Alias for public assets
+      "@public/*": ["src/public/*"],                 // Alias for public assets
+      "@middleware/*": ["src/middleware/*"]
     },
     "types": ["node", "express"],                    // Include Node.js and Express types
     "typeRoots": ["./node_modules/@types", "./src/@types"], // Specify custom type definitions

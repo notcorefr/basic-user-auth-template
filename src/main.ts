@@ -6,6 +6,7 @@ import cors from 'cors';
 import { connect, Connection, mongo } from 'mongoose';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
+import { checkAuth } from '@middleware/auth';
 
 const app = express();
 const mongoUrl = process.env.MONGO_URI;
@@ -22,8 +23,6 @@ app.set('view engine', 'ejs');
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-
-
 app.use('/public', express.static(join(__dirname, 'public')));
 
 
@@ -33,9 +32,9 @@ import * as loginRoutes from './routes/login';
 import * as registerRoutes from './routes/register';
 import * as authRoutes from './routes/auth';
 
-app.use('/', indexRoutes.router);
-app.use('/login', loginRoutes.router);
-app.use('/register', registerRoutes.router);
+app.use('/', checkAuth, indexRoutes.router);
+app.use('/login',checkAuth, loginRoutes.router);
+app.use('/register',checkAuth, registerRoutes.router);
 app.use('/auth', cors(corsOptions), authRoutes.router);
 
 

@@ -19,7 +19,7 @@ if (submitBtn) {
         }
         console.log(res);
 
-        document.cookie = `sessionId=${res.session.sessionId}; expires=${res.session.expiresOn} UTC; path=/`
+        document.cookie = `sessionId=${res.metaData.session.id}; expires=${(res.metaData.session.expiresOn)} UTC; path=/`
 
     })
 

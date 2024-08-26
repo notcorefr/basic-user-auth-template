@@ -101,10 +101,7 @@ router.post('/login', async (req, res) => {
     }
 
 
-
-
-    let session;
-
+    let metaData;
 
 
     try {
@@ -119,7 +116,7 @@ router.post('/login', async (req, res) => {
         }
 
 
-        session = await createSession(username, decryptedPass);
+        metaData = await createSession(username, decryptedPass);
     } catch (err) {
         console.log(err);
         res.send({
@@ -129,12 +126,10 @@ router.post('/login', async (req, res) => {
         return;
     }
 
-
-
     res.send({
         notify: 0,
         message: `Login Successful!`,
-        session: session
+        metaData
     });
 
     return;

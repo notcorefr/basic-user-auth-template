@@ -9,10 +9,10 @@ router.get('/', async (req: Request, res: Response) => {
 
   if (!sessionId) {
     res.render('login', {
-      metaData: {
-        user: null
-      }
+      metaData: null
     });
+    return;
+    
   }
 
   let sessionDoc = await sessionModel.findOne({ sessionId: sessionId });

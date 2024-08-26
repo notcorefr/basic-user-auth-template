@@ -34,8 +34,9 @@ async function createSession(username: string, password: string): Promise<MetaDa
         if (!existingSession) break;
     }
 
-    let expiryDate = new Date();
-    expiryDate.setDate((new Date().getDate() + 2))
+    const date = 7;
+    const expiryDate = new Date();
+    expiryDate.setTime(expiryDate.getTime() + (date * 24 * 60 * 60 * 1000));
 
     let session;
     session = await sessionModel.findOne({ username: username });
