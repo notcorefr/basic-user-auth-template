@@ -3,7 +3,7 @@ import {sessionModel } from '@models/session';
 const router = Router();
 
 
-router.get('/', async (req: Request, res: Response) => {
+router.get('/', async (req: Request , res: Response) => {
   const { sessionId } = req.cookies;
 
 

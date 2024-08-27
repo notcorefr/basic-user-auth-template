@@ -83,7 +83,7 @@ router.post('/login', async (req, res) => {
 
 
     const user = await userModel.findOne({ username: username });
-    
+
     if (!user) {
         res.send({
             notify: 1,
@@ -126,10 +126,17 @@ router.post('/login', async (req, res) => {
         return;
     }
 
+    res.cookie('sessionId', `${metaData.session.id}`, {
+        maxAge: metaData.session.expiresOn.getTime(),
+        path: '/',
+        sameSite: 'strict'
+    });
+
+    
+
     res.send({
         notify: 0,
-        message: `Login Successful!`,
-        metaData
+        message: `Login Successful!`
     });
 
     return;

@@ -1,44 +1,57 @@
 import { sessionModel } from "@models/session";
+import { NextFunction, Request, Response } from "express";
 
 
-async function checkAuth(req: any, res: any, next: any) {
-    console.log(req.cookies)
-    // const { sessionId } = req.cookies;
+async function checkAuth(req: Request, res: Response, next: NextFunction) {
 
-    // if(!sessionId){
-    //     req.metaData = null;
-    //     next();
-    //     return;
-    // }
+    const { sessionId } = req.cookies;
 
 
-    // const sessionDoc = await sessionModel.findOne({sessionId});
-    // if(!sessionDoc || !sessionDoc.expiresOn){
-    //     req.metaData = null;
-    //     next();
-    //     return;
-    // }
+    if (!sessionId) {
+        req.metaData = undefined;
+        next();
+        return;
+    }
 
-    // console.log(sessionDoc)
 
-//     const date = 7;
-//     const expiryDate = new Date();
-//     expiryDate.setTime(expiryDate.getTime() + (date * 24 * 60 * 60 * 1000));
+    const sessionDoc = await sessionModel.findOne({ sessionId });
+    if (!sessionDoc || !sessionDoc.expiresOn || !sessionDoc.sessionId || !sessionDoc.username) {
+        req.metaData = undefined;
+        next();
+        return;
+    }
 
-//     if(sessionDoc.expiresOn > ){
-//         res.cookie('sessionId', '', { expires: new Date(0), path: '/' });
-//         req.metaData = null;
-//         next();
-//         return;
-//     }
 
-//     res.cookie('sessionId', sessionDoc.sessionId, { 
-//        maxAge: expiryDate, 
-//        path: '/',
-//        sameSite: 'Strict'
-//     });
+    const today = new Date();
 
-    next(); 
+    if (sessionDoc.expiresOn.getTime > today.getTime) {
+        res.cookie('sessionId', '', { expires: new Date(0), path: '/' });
+        req.metaData = undefined;
+        next();
+        return;
+    }
+
+    const date = 7;
+    const expiryDate = new Date();
+    expiryDate.setTime(expiryDate.getTime() + (date * 24 * 60 * 60 * 1000));
+
+    res.cookie('sessionId', `${sessionDoc.sessionId}`, {
+        maxAge: expiryDate.getTime(),
+        path: '/',
+        sameSite: 'strict'
+    });
+
+    req.metaData = {
+        user: {
+            username: sessionDoc.username,
+        },
+        session: {
+            id: sessionDoc.sessionId,
+            expiresOn: sessionDoc.expiresOn,
+        }
+    }
+
+    next();
 }
 
 
