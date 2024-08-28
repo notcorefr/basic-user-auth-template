@@ -19,9 +19,7 @@ router.get('/', async (req: Request , res: Response) => {
 
   if (!sessionDoc) {
     res.render('login', {
-      metaData: {
-        user: null
-      }
+      metaData: null
     });
     return;
   }

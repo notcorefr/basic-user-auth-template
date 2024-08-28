@@ -26,6 +26,7 @@ async function checkAuth(req: Request, res: Response, next: NextFunction) {
 
     if (sessionDoc.expiresOn.getTime > today.getTime) {
         res.cookie('sessionId', '', { expires: new Date(0), path: '/' });
+        sessionDoc.deleteOne();
         req.metaData = undefined;
         next();
         return;
