@@ -16,7 +16,7 @@ var corsOptions = {
   optionsSuccessStatus: 200
 };
 
-// app.use(cors(corsOptions))
+// middlewares
 app.set("views", join(__dirname, 'views'))
 app.set('view engine', 'ejs');
 
@@ -26,7 +26,7 @@ app.use(bodyParser.json())
 app.use('/public', express.static(join(__dirname, 'public')));
 
 
-
+// routes
 import * as indexRoutes from './routes/index';
 import * as loginRoutes from './routes/login';
 import * as registerRoutes from './routes/register';
@@ -38,9 +38,15 @@ app.use('/register',checkAuth, registerRoutes.router);
 app.use('/auth', cors(corsOptions), authRoutes.router);
 
 
+// handle 404
+app.get('*', function(req, res){
+  res.status(404).render('404');
+});
 
 
 
+
+// database
 const port = process.env.TOEKN || 4000;
 
 app.listen(port, () => {
