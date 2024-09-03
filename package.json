@@ -5,11 +5,10 @@
   "main": "dist/main.js",
   "type": "module",
   "scripts": {
-    "start": "bun run dist/main.js",
-    "build": "bun run tsc && cp -r src/views dist && cp -r src/public dist",
+    "start": "bun run src/main.ts",
+    "build": "npm i",
     "dev": "nodemon --watch './' --exec 'bun src/main.ts' -e 'ts ejs json'",
-    "type-check": "bun run tsc --noEmit",
-    "clean": "rm -rf dist"
+    "type-check": "bun run tsc --noEmit"
   },
   "repository": {
     "type": "git",
