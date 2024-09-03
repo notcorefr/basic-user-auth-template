@@ -3,41 +3,56 @@
 - In this project my aim is to Give Institutions, a proper management System including payouts management.
 ### Structure
 ```txt
-[283K]  ./
-├── [1.0K]  LICENSE.txt
-├── [1.0K]  package.json
-├── [ 54K]  package-lock.json
-├── [178K]  plan.png
-├── [ 371]  README.md
-├── [   0]  structure.txt
-└── [ 45K]  src/
-    ├── [1.4K]  main.js
-    ├── [4.0K]  models/
-    │   └── [  38]  users.js
-    ├── [ 24K]  public/
-    │   ├── [6.1K]  global/
-    │   │   ├── [ 958]  global.css
-    │   │   └── [1.2K]  global.js
-    │   ├── [4.9K]  index/
-    │   │   ├── [   0]  script.js
-    │   │   └── [ 971]  style.css
-    │   ├── [4.0K]  login/
-    │   │   ├── [   0]  script.js
-    │   │   └── [   0]  style.css
-    │   └── [5.0K]  register/
-    │       ├── [ 985]  script.js
-    │       └── [   0]  style.css
-    ├── [5.4K]  routes/
-    │   ├── [ 938]  auth.js
-    │   ├── [ 175]  index.js
-    │   ├── [ 175]  login.js
-    │   └── [ 179]  register.js
-    └── [6.4K]  views/
-        ├── [ 628]  index.ejs
-        ├── [ 703]  login.ejs
-        └── [1.1K]  register.ejs
 
- 348K used in 10 directories, 23 files
+[145K]  ./
+├── [1.0K]  LICENSE.txt
+├── [ 139]  metaObjPrototype.js
+├── [1.4K]  package.json
+├── [ 60K]  package-lock.json
+├── [1.6K]  README.md
+├── [   0]  structure.txt
+├── [3.2K]  tsconfig.json
+└── [ 74K]  src/
+    ├── [1.8K]  main.ts
+    ├── [5.3K]  middleware/
+    │   └── [1.3K]  auth.ts
+    ├── [4.7K]  models/
+    │   ├── [ 337]  session.ts
+    │   └── [ 369]  users.ts
+    ├── [ 29K]  public/
+    │   ├── [8.7K]  global/
+    │   │   ├── [4.0K]  global.css
+    │   │   └── [ 705]  global.js
+    │   ├── [4.5K]  index/
+    │   │   ├── [   0]  script.js
+    │   │   └── [ 550]  style.css
+    │   ├── [6.1K]  login/
+    │   │   ├── [1.3K]  script.js
+    │   │   └── [ 870]  style.css
+    │   └── [5.8K]  register/
+    │       ├── [ 964]  script.js
+    │       └── [ 888]  style.css
+    ├── [9.1K]  routes/
+    │   ├── [3.1K]  auth.ts
+    │   ├── [ 271]  index.ts
+    │   ├── [ 908]  login.ts
+    │   ├── [ 613]  logout.ts
+    │   └── [ 271]  register.ts
+    ├── [4.4K]  @types/
+    │   ├── [ 238]  express.d.ts
+    │   └── [ 167]  metaData.d.ts
+    ├── [7.3K]  utils/
+    │   ├── [2.2K]  createSession.ts
+    │   ├── [ 501]  decryptPassword.ts
+    │   └── [ 548]  encryptPassword.ts
+    └── [8.1K]  views/
+        ├── [ 500]  404.ejs
+        ├── [ 889]  index.ejs
+        ├── [1.5K]  login.ejs
+        └── [1.3K]  register.ejs
+
+ 260K used in 13 directories, 33 files
+
 
 ```
 ### env

@@ -1,39 +1,48 @@
-[117K]  ./
+[145K]  ./
 ├── [1.0K]  LICENSE.txt
-├── [1.1K]  package.json
-├── [ 54K]  package-lock.json
+├── [ 139]  metaObjPrototype.js
+├── [1.4K]  package.json
+├── [ 60K]  package-lock.json
 ├── [1.6K]  README.md
 ├── [   0]  structure.txt
-└── [ 55K]  src/
-    ├── [1.4K]  main.js
+├── [3.2K]  tsconfig.json
+└── [ 74K]  src/
+    ├── [1.8K]  main.ts
+    ├── [5.3K]  middleware/
+    │   └── [1.3K]  auth.ts
     ├── [4.7K]  models/
-    │   ├── [ 362]  session.js
-    │   └── [ 401]  users.js
-    ├── [ 25K]  public/
-    │   ├── [6.1K]  global/
-    │   │   ├── [1.4K]  global.css
+    │   ├── [ 337]  session.ts
+    │   └── [ 369]  users.ts
+    ├── [ 29K]  public/
+    │   ├── [8.7K]  global/
+    │   │   ├── [4.0K]  global.css
     │   │   └── [ 705]  global.js
-    │   ├── [4.9K]  index/
+    │   ├── [4.5K]  index/
     │   │   ├── [   0]  script.js
-    │   │   └── [ 971]  style.css
-    │   ├── [5.0K]  login/
-    │   │   ├── [1.0K]  script.js
-    │   │   └── [   0]  style.css
-    │   └── [4.9K]  register/
+    │   │   └── [ 550]  style.css
+    │   ├── [6.1K]  login/
+    │   │   ├── [1.3K]  script.js
+    │   │   └── [ 870]  style.css
+    │   └── [5.8K]  register/
     │       ├── [ 964]  script.js
-    │       └── [   0]  style.css
-    ├── [7.1K]  routes/
-    │   ├── [2.6K]  auth.js
-    │   ├── [ 175]  index.js
-    │   ├── [ 175]  login.js
-    │   └── [ 179]  register.js
-    ├── [5.9K]  utils/
-    │   ├── [1.1K]  createSession.js
-    │   ├── [ 368]  decryptPassword.js
-    │   └── [ 476]  encryptPassword.js
-    └── [6.9K]  views/
-        ├── [ 607]  index.ejs
-        ├── [1.2K]  login.ejs
-        └── [1.1K]  register.ejs
+    │       └── [ 888]  style.css
+    ├── [9.1K]  routes/
+    │   ├── [3.1K]  auth.ts
+    │   ├── [ 271]  index.ts
+    │   ├── [ 908]  login.ts
+    │   ├── [ 613]  logout.ts
+    │   └── [ 271]  register.ts
+    ├── [4.4K]  @types/
+    │   ├── [ 238]  express.d.ts
+    │   └── [ 167]  metaData.d.ts
+    ├── [7.3K]  utils/
+    │   ├── [2.2K]  createSession.ts
+    │   ├── [ 501]  decryptPassword.ts
+    │   └── [ 548]  encryptPassword.ts
+    └── [8.1K]  views/
+        ├── [ 500]  404.ejs
+        ├── [ 889]  index.ejs
+        ├── [1.5K]  login.ejs
+        └── [1.3K]  register.ejs
 
- 199K used in 11 directories, 26 files
+ 260K used in 13 directories, 33 files

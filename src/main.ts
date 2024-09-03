@@ -31,11 +31,13 @@ import * as indexRoutes from './routes/index';
 import * as loginRoutes from './routes/login';
 import * as registerRoutes from './routes/register';
 import * as authRoutes from './routes/auth';
+import * as logoutRoutes from './routes/logout';
 
 app.use('/', checkAuth, indexRoutes.router);
 app.use('/login',checkAuth, loginRoutes.router);
 app.use('/register',checkAuth, registerRoutes.router);
 app.use('/auth', cors(corsOptions), authRoutes.router);
+app.use('/logout', checkAuth, logoutRoutes.router)
 
 
 // handle 404

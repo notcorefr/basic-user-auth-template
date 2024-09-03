@@ -17,17 +17,22 @@
       </ul>
 
       <ul>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/register">Register</a></li>
+      <li><a href="/about">About</a></li>
+
+        <% if (metaData) { %>
+          <li><a href="/logout"> Logut</a></li>
+        <%}else{ %>
+          <li><a href="/login">Login</a></li>
+          <li><a href="/register">Register</a></li>
+        <% }%>
       </ul>
   </header>
 
-  <!-- Hello <%= foo %> -->
-  <h2>Register Page</h2>
-
+  
   <main>
     <div class="register-container">
       <form action="">
+        <h2>Register Page</h2>
         <label for="username">Username</label>
         <input type="text" name="username" id="username">
 

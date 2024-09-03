@@ -19,6 +19,13 @@ if (submitBtn) {
         }
         console.log(res);
 
+
+        if (res.notify == 0) {
+            setTimeout(() => {
+                window.location.reload();
+            }, 5000);
+        }
+
         // document.cookie = `sessionId=${res.metaData.session.id}; expires=${(res.metaData.session.expiresOn)} UTC; path=/`
 
     })

@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
     return;
   }
 
-  res.render('index', {metaData: undefined});
+  res.render('index', {metaData: null});
   return;
 });
 

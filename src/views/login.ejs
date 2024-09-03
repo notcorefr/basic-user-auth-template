@@ -15,30 +15,36 @@
   <header>
     <ul>
       <li><a href="/">Home</a></li>
-      <li><a href="/">Home</a></li>
     </ul>
 
     <ul>
-      <li><a href="/login">Login</a></li>
-      <li><a href="/register">Register</a></li>
+      <li><a href="/about">About</a></li>
+
+      <% if (metaData) { %>
+        <li><a href="/logout"> Logut</a></li>
+      <%}else{ %>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/register">Register</a></li>
+      <% }%>
+      
     </ul>
   </header>
-  <h2>Login Page</h2>
   <main>
     <%if (metaData) { %>
     <h1>Welcome, <%= metaData.user.username %></h1>
     <% }else{%>
 
-    <div class="login-container">
+    <div class="login-container poppins-bold">
       <form action="">
+        <h2 class="poppins-black">Login</h2>
         <label for="username">Username</label>
-        <input type="text" name="username" id="username">
+        <input type="text" class="poppins-bold" name="username" id="username" placeholder="Enter Your username here">
 
 
         <label for="password">Password</label>
-        <input type="password" name="password" id="password" placeholder="Enter Your password here">
+        <input type="password" name="password" class="poppins-bold" id="password" placeholder="Enter Your password here">
 
-        <input type="submit" value="Submit" id="submit">
+        <input type="submit" value="Submit" class="poppins-bold" id="submit">
       </form>
     </div>
 
