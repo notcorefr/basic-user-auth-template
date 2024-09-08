@@ -19,6 +19,12 @@ submitBtn.addEventListener('click', async (e) =>{
     
     notify(res.message, res.notify);
 
+    if(res.notify == 0){
+        setTimeout(()=>{
+            window.location.reload();
+        }, 2000)
+    }
+
 
 })
 

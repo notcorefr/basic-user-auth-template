@@ -23,7 +23,7 @@ if (submitBtn) {
         if (res.notify == 0) {
             setTimeout(() => {
                 window.location.reload();
-            }, 3000);
+            }, 2000);
         }
 
         // document.cookie = `sessionId=${res.metaData.session.id}; expires=${(res.metaData.session.expiresOn)} UTC; path=/`

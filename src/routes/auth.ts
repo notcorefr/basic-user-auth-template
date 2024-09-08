@@ -53,6 +53,12 @@ router.post('/register', async (req, res) => {
 
     const metaData = await createSession(username, password);
 
+    res.cookie('sessionId', `${metaData.session.id}`, {
+        maxAge: metaData.session.expiresOn.getTime(),
+        path: '/',
+        sameSite: 'strict'
+    });
+
     res.send({
         message: 'Registration Successful',
         notify: 0,
