@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
   <link rel="stylesheet" href="/public/global/global.css">
+  <link rel="stylesheet" href="/public/index/style.css">
 </head>
 
 <body class="poppins-regular">
@@ -17,10 +18,10 @@
     <ul>
       <li><a href="/about">About</a></li>
       <% if (metaData) { %>
-        <li><a href="/logout"> Logut</a></li>
+      <li><a href="/logout"> Logout</a></li>
       <%}else{ %>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/register">Register</a></li>
+      <li><a href="/login">Login</a></li>
+      <li><a href="/register">Register</a></li>
       <% }%>
     </ul>
   </header>
@@ -29,13 +30,30 @@
 
     <% if (metaData) {%>
 
-      <H2>WELCOME BACK, <%= metaData.user.username %></H2>
+    <H2>WELCOME BACK, <%= metaData.user.username %></H2>
 
+    <%}else{ %>
+    <section id="first">
+
+      <div class="tagline poppins-black">
+        One Stop Solution For Your Payouts Management!
+      </div>
+
+      <div class="login-reg-container">
+        <a href="/login" value="Login">Login</a>
+        <a href="/register" value="Register">Register</a>
+      </div>
+      
+    </section>
     <%} %>
 
   </main>
 
-  <script  type="module" src="/public/index/script.js"></script>
+  <footer>
+    footer
+  </footer>
+
+  <script type="module" src="/public/index/script.js"></script>
   <script type="module" src="/public/global/global.js"></script>
 </body>
 

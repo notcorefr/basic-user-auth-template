@@ -1,32 +1,64 @@
-/* @import "../global/global.css";
+ @import "../global/global.css";
 
 
+ main #first {
+     min-height: 90vh;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     flex-direction: row;
+     padding: 8em;
+     flex-wrap: wrap;
+ }
 
-main {
-    padding: 2em;
-}
+ main #first .tagline {
+     padding: 10px 40px;
+     /* background-color: var(--primary-color); */
+     border-radius: 25px;
+     text-align: left;
+     max-width: 60%;
+     font-variant: small-caps;
+     /* font-variant-caps: all-petite-caps; */
+     font-size: 5rem;
+     min-height: fit-content;
+ }
 
-.content {
-    background-color: var(--primary-color);
-    color: var(--background-color);
-    padding: 1em;
-    border-radius: 8px;
-    margin-bottom: 1em;
-}
 
-.highlight {
-    background-color: var(--secondary-color);
-    color: var(--background-color);
-    padding: 1em;
-    border-radius: 8px;
-}
+ main #first .login-reg-container {
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+ }
 
-footer {
-    background-color: var(--accent-color);
-    color: var(--text-color);
-    text-align: center;
-    padding: 1em 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-} */
+ main #first .login-reg-container>a {
+     text-decoration: none;
+     color: var(--text-color);
+     margin: 20px 0;
+     background-color: var(--primary-color);
+     border: 1px solid var(--accent-color);
+     border-radius: 5px;
+     cursor: pointer;
+     padding: 1.5em 8em;
+     text-align: center;
+     font-size: large;
+     transition: transform 0.3s ease;
+ }
+
+ main #first .login-reg-container>a:hover {
+     transform: translateY(-5px);
+     background-color: var(--accent-color);
+ }
+
+
+ @media only screen and (max-width: 1100px) {
+     main #first {
+         padding: 3em;
+         flex-direction: column;
+         justify-content: space-evenly;
+     }
+
+     main #first .tagline {
+         font-size: 3em;
+         max-width: 100%;
+     }
+ }
