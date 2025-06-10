@@ -1,6 +1,4 @@
-# School Management System
-## Plan
-- In this project my aim is to Give Institutions, a proper management System including payouts management.
+# Basic User Authentication Template
 ### Structure
 ```txt
 

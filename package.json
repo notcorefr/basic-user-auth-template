@@ -1,7 +1,7 @@
 {
-  "name": "school-management-system",
+  "name": "basic-user-auth-template",
   "version": "0.2.0",
-  "description": "Open Source School Management system. It can be used for schools, tutions, institutions, university, etc.",
+  "description": "",
   "main": "dist/main.js",
   "type": "module",
   "scripts": {
@@ -12,22 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anuj-weebjs/school-management-system.git"
+    "url": "git+https://github.com/anuj-weebjs/basic-user-auth-template.git"
   },
-  "keywords": [
-    "school-management",
-    "javascript",
-    "schools",
-    "tutions",
-    "helping",
-    "community"
-  ],
   "author": "anuj-weebjs",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/anuj-weebjs/school-management-system/issues"
+    "url": "https://github.com/anuj-weebjs/basic-user-auth-template/issues"
   },
-  "homepage": "https://github.com/anuj-weebjs/school-management-system#readme",
+  "homepage": "https://github.com/anuj-weebjs/basic-user-auth-template#readme",
   "dependencies": {
     "body-parser": "^1.20.2",
     "cookie-parser": "^1.4.6",
