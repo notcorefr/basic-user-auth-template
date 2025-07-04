@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anuj-weebjs/basic-user-auth-template.git"
+    "url": "git+https://github.com/notcorefr/basic-user-auth-template.git"
   },
-  "author": "anuj-weebjs",
+  "author": "notcorefr",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/anuj-weebjs/basic-user-auth-template/issues"
+    "url": "https://github.com/notcorefr/basic-user-auth-template/issues"
   },
-  "homepage": "https://github.com/anuj-weebjs/basic-user-auth-template#readme",
+  "homepage": "https://github.com/notcorefr/basic-user-auth-template#readme",
   "dependencies": {
     "body-parser": "^1.20.2",
     "cookie-parser": "^1.4.6",
